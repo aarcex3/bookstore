@@ -1,13 +1,16 @@
 package routes
 
 import (
+	"net/http"
+
+	"github.com/aarcex3/bookstore/models"
 	"github.com/gin-gonic/gin"
 )
 
 func GetBooks(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "getBooks",
-	})
+	var books []models.Book
+	models.DB.Find(&books)
+	c.JSON(http.StatusOK, gin.H{"data": books})
 }
 func GetBook(c *gin.Context) {
 	c.JSON(200, gin.H{
