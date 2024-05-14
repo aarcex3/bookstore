@@ -9,9 +9,9 @@ var DB *gorm.DB
 
 type Book struct {
 	gorm.Model
-	Title       string `json:"title"`
-	Author      string `json:"author"`
-	Publication string `json:"publication"`
+	Title           string `json:"title"`
+	Author          string `json:"author"`
+	PublicationDate string `json:"publication_date"`
 }
 
 func Init() {
